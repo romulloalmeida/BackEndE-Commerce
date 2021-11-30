@@ -1,6 +1,7 @@
 package com.example.BackEndECommerce.controller;
 
 import com.example.BackEndECommerce.persistence.entities.Categoria;
+import com.example.BackEndECommerce.persistence.entities.Produto;
 import com.example.BackEndECommerce.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +24,7 @@ public class CategoriaController {
     }
 
     @GetMapping("{categoria}")
-    public List<Categoria> getProdutoCategoria(@PathVariable String categoria){
-        return null;
+    public List<Produto> getProdutoCategoria(@PathVariable String categoria){
+        return service.listarProdutoPorCategoria(categoria);
     }
 }
