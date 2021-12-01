@@ -21,4 +21,12 @@ public class CategoriaService {
     public List<Produto> listarProdutoPorCategoria(String categoria){
         return repository.buscarProdutoCategoria(categoria);
     }
+
+    public Categoria criarCategoria(Categoria categoria){
+        return repository.save(categoria);
+    }
+
+    public void deletarCategoria(Integer id){
+        repository.deleteById(id);
+    }
 }

@@ -4,10 +4,7 @@ import com.example.BackEndECommerce.persistence.entities.Categoria;
 import com.example.BackEndECommerce.persistence.entities.Produto;
 import com.example.BackEndECommerce.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +23,16 @@ public class CategoriaController {
     @GetMapping("{categoria}")
     public List<Produto> getProdutoCategoria(@PathVariable String categoria){
         return service.listarProdutoPorCategoria(categoria);
+    }
+
+    @PostMapping
+    public Categoria postCategoria(@RequestBody Categoria categoria){
+        return service.criarCategoria(categoria);
+    }
+
+    @DeleteMapping("{id}")
+    public String deleteCategoria(@PathVariable Integer id){
+        service.deletarCategoria(id);
+        return "Categoria deletada com sucesso!";
     }
 }

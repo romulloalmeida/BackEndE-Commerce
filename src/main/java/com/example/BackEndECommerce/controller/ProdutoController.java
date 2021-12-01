@@ -3,10 +3,7 @@ package com.example.BackEndECommerce.controller;
 import com.example.BackEndECommerce.persistence.entities.Produto;
 import com.example.BackEndECommerce.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +22,21 @@ public class ProdutoController {
     @GetMapping("/{id}")
     public Produto getProdutoId(@PathVariable Integer id){
         return service.buscarProdutoId(id);
+    }
+
+    @PostMapping
+    public Produto postProduto(@RequestBody Produto produto){
+        return service.criarProduto(produto);
+    }
+
+    @DeleteMapping("{id}")
+    public String deleteProduto(@PathVariable Integer id){
+        service.deletarProduto(id);
+        return "Produto deletado com sucesso!";
+    }
+
+    @PutMapping
+    public Produto putProduto(@RequestBody Produto produto){
+        return service.editarProduto(produto);
     }
 }

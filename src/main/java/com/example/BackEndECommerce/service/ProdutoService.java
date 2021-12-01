@@ -21,7 +21,24 @@ public class ProdutoService {
         return repository.findById(id).get();
     }
 
-    public List<Produto> buscarProdutoCategoria(String categoria){
-        return null;
+    public Produto criarProduto(Produto produto){
+        return repository.save(produto);
+    }
+
+    public void deletarProduto(Integer id){
+        repository.deleteById(id);
+    }
+
+    public Produto editarProduto(Produto produto){
+        Produto produtoEditar = repository.findById(produto.getId()).get();
+        if (produto.getCategoria() != null)
+            produtoEditar.setCategoria(produto.getCategoria());
+        if (produto.getDescricao() != null)
+            produtoEditar.setDescricao(produto.getDescricao());
+        if (produto.getImagem() != null)
+            produtoEditar.setImagem(produto.getImagem());
+        if (produto.getValor() != null)
+            produtoEditar.setValor(produto.getValor());
+        return repository.save(produtoEditar);
     }
 }
