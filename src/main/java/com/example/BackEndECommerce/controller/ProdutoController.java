@@ -24,6 +24,10 @@ public class ProdutoController {
         return service.buscarProdutoId(id);
     }
 
+    @GetMapping("console/{console}")
+    public List<Produto> getProdutoConsole(@PathVariable String console){
+        return service.consoleProduto(console);
+    }
     @PostMapping
     public Produto postProduto(@RequestBody Produto produto){
         return service.criarProduto(produto);

@@ -41,4 +41,8 @@ public class ProdutoService {
             produtoEditar.setValor(produto.getValor());
         return repository.save(produtoEditar);
     }
+
+    public List<Produto> consoleProduto(String console){
+        return repository.buscarProdutoPorConsole(console);
+    }
 }

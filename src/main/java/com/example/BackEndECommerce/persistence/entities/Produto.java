@@ -11,16 +11,19 @@ public class Produto {
     private String nome;
     private Double valor;
     private String descricao;
+    private String console;
     private String imagem;
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
     public Produto(){}
-    public Produto(String nome, Double valor, String descricao, String imagem, Categoria categoria) {
+
+    public Produto(String nome, Double valor, String descricao, String console, String imagem, Categoria categoria) {
         this.nome = nome;
         this.valor = valor;
         this.descricao = descricao;
+        this.console = console;
         this.imagem = imagem;
         this.categoria = categoria;
     }
@@ -67,5 +70,13 @@ public class Produto {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public String getConsole() {
+        return console;
+    }
+
+    public void setConsole(String console) {
+        this.console = console;
     }
 }
