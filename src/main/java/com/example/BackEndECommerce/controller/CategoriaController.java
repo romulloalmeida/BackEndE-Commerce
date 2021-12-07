@@ -24,15 +24,4 @@ public class CategoriaController {
     public List<Produto> getProdutoCategoria(@PathVariable String categoria){
         return service.listarProdutoPorCategoria(categoria);
     }
-
-    @PostMapping
-    public Categoria postCategoria(@RequestBody Categoria categoria){
-        return service.criarCategoria(categoria);
-    }
-
-    @DeleteMapping("{id}")
-    public String deleteCategoria(@PathVariable Integer id){
-        service.deletarCategoria(id);
-        return "Categoria deletada com sucesso!";
-    }
 }

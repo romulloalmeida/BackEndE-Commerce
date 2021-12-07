@@ -28,19 +28,4 @@ public class ProdutoController {
     public List<Produto> getProdutoConsole(@PathVariable String console){
         return service.consoleProduto(console);
     }
-    @PostMapping
-    public Produto postProduto(@RequestBody Produto produto){
-        return service.criarProduto(produto);
-    }
-
-    @DeleteMapping("{id}")
-    public String deleteProduto(@PathVariable Integer id){
-        service.deletarProduto(id);
-        return "Produto deletado com sucesso!";
-    }
-
-    @PutMapping
-    public Produto putProduto(@RequestBody Produto produto){
-        return service.editarProduto(produto);
-    }
 }
