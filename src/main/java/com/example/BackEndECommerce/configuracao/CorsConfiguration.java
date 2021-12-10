@@ -9,8 +9,9 @@ public class CorsConfiguration implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         //liberando app cliente 1
-        registry.addMapping("/*")
+        registry.addMapping("/**")
                 .allowedOrigins("https://ctdcommerce.vercel.app:8080/%22")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT")
+                .allowCredentials(true);
     }
 }
