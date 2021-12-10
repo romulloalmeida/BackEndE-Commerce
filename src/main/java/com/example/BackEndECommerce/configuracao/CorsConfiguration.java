@@ -10,7 +10,7 @@ public class CorsConfiguration implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         //liberando app cliente 1
         registry.addMapping("/*")
-                .allowedOrigins("https://ctdcommerce.vercel.app/:8080")
+                .allowedOrigins("https://ctdcommerce.vercel.app:8080/%22")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
     }
 }
